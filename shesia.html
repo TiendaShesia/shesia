@@ -38,15 +38,43 @@
             width: 100%;
             border-radius: 10px;
         }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .carousel img {
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
     </style>
+    <script>
+        let index = 0;
+        function changeImage() {
+            const images = document.querySelectorAll('.carousel img');
+            index = (index + 1) % images.length;
+            images.forEach((img, i) => {
+                img.style.transform = `translateX(-${index * 100}%)`;
+            });
+        }
+        setInterval(changeImage, 3000);
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Moda para Niñas y Damas</h1>
         <p>Precios bajos, envíos a todo el país y un catálogo exclusivo para ti.</p>
-        <img src="https://via.placeholder.com/500x300" alt="Ropa para niñas y damas">
+        <div class="carousel">
+            <img src="https://via.placeholder.com/500x300" alt="Ropa 1">
+            <img src="https://via.placeholder.com/500x300/ff4081/ffffff" alt="Ropa 2">
+            <img src="https://via.placeholder.com/500x300/25D366/ffffff" alt="Ropa 3">
+        </div>
         <p>Haz clic en el botón para ver nuestro catálogo y hablar con nosotros.</p>
         <a href="https://wa.me/1234567890" class="btn">¡Contáctanos por WhatsApp!</a>
     </div>
 </body>
 </html>
+
+
